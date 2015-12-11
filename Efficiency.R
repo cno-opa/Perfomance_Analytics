@@ -234,7 +234,7 @@ DPW_Ef<-DPW_Ef[DPW_Ef$Efficiency>0,]
 
 #### Create plots for expected and actual efficiency
 DPW_Explot<-ggplot(DPW_Ex,aes(x=Year2,y=Expected))+
-  geom_bar(stat="identity",fill=darkBlue,size=0.6)+
+  geom_bar(stat="identity",size=0.6)+
   facet_grid(facets=.~Measure)+
   ggtitle("DPW Expected Efficiency 2011-2015")+
   xlab("Year")+ylab("Performance/$100K")+
@@ -244,7 +244,7 @@ DPW_Explot<-ggplot(DPW_Ex,aes(x=Year2,y=Expected))+
 print(DPW_Explot)
 
 DPW_Efplot<-ggplot(DPW_Ef,aes(x=Year2,y=Efficiency))+
-  geom_bar(stat="identity",fill=darkBlue,size=0.6)+
+  geom_bar(stat="identity",size=0.6)+
   facet_grid(facets=.~Measure)+
   ggtitle("DPW Actual Efficiency 2011-2015")+
   xlab("Year")+ylab("Performance/$100K")+
@@ -358,21 +358,21 @@ Perf_lm<-ggplot(Performance_lm,aes(x=Growth,y=Status))+
 print(Perf_lm)
 
 #### Generate regression plots for all departments
-# for (i in 1:length(levels(Performance_lm$Org))){
-# 
-#  print(ggplot(Performance_lm[Performance_lm$Org==levels(Performance_lm$Org)[i],],aes(x=Growth,y=Status))+
-#          geom_point(shape=1)+
-#          geom_smooth(method="lm",se=TRUE)+
-#          ggtitle("Regression of the effect of budget growth on overall KPI performance")+
-#           geom_text(x=-5,y=2,label=lm_eqn(lm(Status~Growth,Performance_lm[i])),parse=TRUE)+ ### lm_eqn is a custom function that adds regression equation and Rsquared to plot
-#          labs(x="Growth",y="Status"))
-# }
+ for (i in 1:length(levels(Performance_lm$Org))){
+ 
+  print(ggplot(Performance_lm[Performance_lm$Org==levels(Performance_lm$Org)[i],],aes(x=Growth,y=Status))+
+          geom_point(shape=1)+
+          geom_smooth(method="lm",se=TRUE)+
+          ggtitle("Regression of the effect of budget growth on overall KPI performance")+
+          # geom_text(x=-5,y=2,label=lm_eqn(lm(Status~Growth,Performance_lm[i])),parse=TRUE)+ ### lm_eqn is a custom function that adds regression equation and Rsquared to plot
+          labs(x="Growth",y="Status"))
+ }
 
 DPW_lm<-ggplot(Performance_lm[Performance_lm$Org=="Public Works",],aes(x=Growth,y=Status))+
   geom_point(shape=1)+
   geom_smooth(method="lm",se=TRUE)+
   ggtitle("Regression of the effect of budget growth on overall KPI performance - DPW")+
-  geom_text(x=-5,y=2,label=lm_eqn(lm(Status~Growth,DPW)),parse=TRUE)+ ##### lm_eqn is a custom function that adds regression equation and Rsquared to plot
+  geom_text(x=-5,y=2,label=lm_eqn(lm(Status~Growth,Performance_Netlm[Performance_Netlm$Org=="Public Works",])),parse=TRUE)+ ##### lm_eqn is a custom function that adds regression equation and Rsquared to plot
   labs(x="Growth",y="Status")
 print(DPW_lm)
 
