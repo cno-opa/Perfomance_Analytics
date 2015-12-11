@@ -1,12 +1,12 @@
-## This repo will encompass the scripts analyzing performance efficiency, as well as forecasting performance, and target recommendations on City of New Orleans' Key Performance Indicators.
+### This repo will encompass the scripts analyzing performance efficiency, as well as forecasting performance, and target recommendations on City of New Orleans' Key Performance Indicators.
 
 
-### Component scripts
+#### Component scripts
 * Efficiency measurements and regression modeling (Efficiency.R)
 * Performance Forecasting (forthcoming)
 * Target Recommendations (forthcoming)
 
-### Current Methodologies - Efficency.R
+#### Current Methodologies - Efficency.R
 * Efficiency measurement:
   * "Count" type KPIs
     * "Expected Efficiency" = Yearly Target/Yearly Budget
@@ -19,8 +19,7 @@
     * Net Performance == Net change in Performance Status from prior year
 
 
-
-### To-Do's
+#### To-Do's
 * Finish Efficiency.R
   * Generally, provide more nuanced efficiency calculations (if needed)
     * Efficiency calculations for different variable types?
