@@ -358,7 +358,7 @@ Perf_lm<-ggplot(Performance_lm,aes(x=Growth,y=Status))+
 print(Perf_lm)
 
 #### Generate regression plots for all departments
- for (i in 1:length(levels(Performance_lm$Org))){
+ for (i in levels(as.factor(Performance_lm$Org))){
  
   print(ggplot(Performance_lm[Performance_lm$Org==levels(Performance_lm$Org)[i],],aes(x=Growth,y=Status))+
           geom_point(shape=1)+
