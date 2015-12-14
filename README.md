@@ -22,6 +22,7 @@
 #### To-Do's
 * Finish Efficiency.R
   * Generally, provide more nuanced efficiency calculations (if needed)
+    * Calculate percent change in performance
     * Efficiency calculations for different variable types?
     * Evaluate current regression models, and create new ones
   * Figure out how to automate efficiency and regression plots for all departments
